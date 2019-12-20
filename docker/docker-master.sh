@@ -88,8 +88,8 @@ sudo -u root livemedia-creator --make-iso --iso=$CENTOS_BOOT_ISO --ks=$MAIN_KS -
 
 echo -e "\nCreating TAR file required for Docker import"
 sleep 10
-echo -e "/bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR"
-/bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR
+echo -e "sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR"
+sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR
 rm -f $MAIN_ISO_FQ
 
 echo -e "\nDealing with Docker!"
