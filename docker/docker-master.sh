@@ -6,6 +6,8 @@ http_proxy="http://proxy.man.ac.uk:3128"
 CENTOS_BOOT_ISO=http/boot.iso
 CENTOS_URL=http://mirrors.ukfast.co.uk/sites/ftp.centos.org/7/os/x86_64/images/boot.iso
 
+echo -e "\n\nTEST\n\n"
+
 echo -e "\nPlease select which image to create...\n"
 echo -e "\n1) Juan (Code Aster & Code Saturn)"
 echo -e "\n2) MAD (Mongo DB, Apache Spark and Django)"
