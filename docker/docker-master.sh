@@ -6,8 +6,6 @@ http_proxy="http://proxy.man.ac.uk:3128"
 CENTOS_BOOT_ISO=http/boot.iso
 CENTOS_URL=http://mirrors.ukfast.co.uk/sites/ftp.centos.org/7/os/x86_64/images/boot.iso
 
-echo -e "\n\nTEST\n\n"
-
 echo -e "\nPlease select which image to create...\n"
 echo -e "\n1) Juan (Code Aster & Code Saturn)"
 echo -e "\n2) MAD (Mongo DB, Apache Spark and Django)"
@@ -88,13 +86,13 @@ sudo rm -f $MAIN_ISO_FQ
 echo -e "\nStarting ISO creation"
 sudo -u root livemedia-creator --make-iso --iso=$CENTOS_BOOT_ISO --ks=$MAIN_KS --image-name=$MAIN_ISO --logfile=$MAIN_LOG --keep-image --tmp=/data/tmp --proxy=proxy.man.ac.uk:3128
 
-echo -e "\nCreating STAR file required for Docker import"
+echo -e "\nCreating TAR file required for Docker import"
 sleep 10
 echo -e "sudo chmod 755 $MAIN_ISO_FQ"
 sudo chmod 755 $MAIN_ISO_FQ
 echo -e "sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR"
 sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR
-rm -f $MAIN_ISO_FQ
+#rm -f $MAIN_ISO_FQ
 
 echo -e "\nDealing with Docker!"
 docker rm `docker ps -a | grep $MAIN_NAME | cut -c1-12`
