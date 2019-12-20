@@ -1,0 +1,1 @@
+yum -y install R xorg-x11-xauth libglvnd-glx freetype fontconfig libXcomposite libXcursor libXi libXtst alsa-lib libglvnd-egl
