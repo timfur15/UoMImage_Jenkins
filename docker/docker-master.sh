@@ -117,6 +117,6 @@ tar -cvf /data/tmp/$MAIN_TAR *
 #	cat $MAIN_TAR | docker import - $MAIN_NAME
 #fi
 
-echo -e "\nSaving Docker image files to $PWD/$SAVED_IMAGES"
+echo -e "\nSaving Docker image files to $SAVED_IMAGES"
 mkdir -p $SAVED_IMAGES
 mv $MAIN_TAR $SAVED_IMAGES/.
