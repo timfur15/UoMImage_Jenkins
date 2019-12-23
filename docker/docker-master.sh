@@ -120,4 +120,4 @@ sudo tar -cvf /data/tmp/$MAIN_TAR *
 echo -e "\nSaving Docker image files to $SAVED_IMAGES"
 sudo mkdir -p $SAVED_IMAGES
 sudo chown jenkins $SAVED_IMAGES
-mv $MAIN_TAR $SAVED_IMAGES/.
+mv /data/tmp/$MAIN_TAR $SAVED_IMAGES/.
