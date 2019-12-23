@@ -90,6 +90,7 @@ sudo -u root livemedia-creator --make-fsimage --iso=$CENTOS_BOOT_ISO --ks=$MAIN_
 echo -e "\nCreating TAR file required for Docker import"
 sleep 10
 
+umount /mnt/iso
 mkdir /mnt/iso
 mount /data/tmp/$MAIN_ISO /mnt/iso
 
