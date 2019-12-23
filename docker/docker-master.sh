@@ -53,7 +53,7 @@ MAIN_LOG=$MAIN_NAME.log
 MAIN_TAR=$MAIN_NAME.tar
 INPUT_KS=http/centos7.ks
 SCRIPT_DIR=scripts
-SAVED_IMAGES=../saved_images/docker
+SAVED_IMAGES=/data/saved_images/docker
 
 echo -e "\n\nDownloading Centos Boot ISO, if required...\n"
 CENTOS_ISO=$CENTOS_BOOT_ISO
@@ -84,28 +84,35 @@ echo -e "\nRemove old version of ISO ($MAIN_ISO) due to be created?"
 sudo rm -f $MAIN_ISO_FQ
 
 echo -e "\nStarting ISO creation"
-echo -e "\nsudo -u root livemedia-creator --make-iso --iso=$CENTOS_BOOT_ISO --ks=$MAIN_KS --image-name=$MAIN_ISO --logfile=$MAIN_LOG --keep-image --tmp=/data/tmp --proxy=proxy.man.ac.uk:3128"
-sudo -u root livemedia-creator --make-iso --iso=$CENTOS_BOOT_ISO --ks=$MAIN_KS --image-name=$MAIN_ISO --logfile=$MAIN_LOG --keep-image --tmp=/data/tmp --proxy=proxy.man.ac.uk:3128
+echo -e "\nsudo -u root livemedia-creator --make-fsimage --iso=$CENTOS_BOOT_ISO --ks=$MAIN_KS --image-name=$MAIN_ISO --logfile=$MAIN_LOG --keep-image --tmp=/data/tmp --proxy=proxy.man.ac.uk:3128"
+sudo -u root livemedia-creator --make-fsimage --iso=$CENTOS_BOOT_ISO --ks=$MAIN_KS --image-name=$MAIN_ISO --logfile=$MAIN_LOG --keep-image --tmp=/data/tmp --proxy=proxy.man.ac.uk:3128
 
 echo -e "\nCreating TAR file required for Docker import"
 sleep 10
-export LIBGUESTFS_BACKEND=direct
-LIBGUESTFS_BACKEND=direct
-echo -e "sudo chmod 755 $MAIN_ISO_FQ"
-sudo chmod 755 $MAIN_ISO_FQ
-echo -e "sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR"
-sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR
-#rm -f $MAIN_ISO_FQ
 
-echo -e "\nDealing with Docker!"
-docker rm `docker ps -a | grep $MAIN_NAME | cut -c1-12`
-docker rmi $MAIN_NAME
-if [ $selection -eq "4" ]
-then
-	cat $MAIN_TAR | docker import --change 'CMD ["/usr/local/bin/tigervnc.sh"]' - centos7-vnc
-else
-	cat $MAIN_TAR | docker import - $MAIN_NAME
-fi
+mkdir /mnt/iso
+mount /data/tmp/$MAIN_ISO /mnt/iso
+
+cd /mnt/iso
+tar -cvf /data/tmp/$MAIN_TAR *
+
+#export LIBGUESTFS_BACKEND=direct
+#LIBGUESTFS_BACKEND=direct
+#echo -e "sudo chmod 755 $MAIN_ISO_FQ"
+#sudo chmod 755 $MAIN_ISO_FQ
+#echo -e "sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR"
+#sudo /bin/virt-tar-out -a $MAIN_ISO_FQ / $MAIN_TAR
+##rm -f $MAIN_ISO_FQ
+
+#echo -e "\nDealing with Docker!"
+#docker rm `docker ps -a | grep $MAIN_NAME | cut -c1-12`
+#docker rmi $MAIN_NAME
+#if [ $selection -eq "4" ]
+#then
+#	cat $MAIN_TAR | docker import --change 'CMD ["/usr/local/bin/tigervnc.sh"]' - centos7-vnc
+#else
+#	cat $MAIN_TAR | docker import - $MAIN_NAME
+#fi
 
 echo -e "\nSaving Docker image files to $PWD/$SAVED_IMAGES"
 mkdir -p $SAVED_IMAGES
