@@ -118,5 +118,6 @@ tar -cvf /data/tmp/$MAIN_TAR *
 #fi
 
 echo -e "\nSaving Docker image files to $SAVED_IMAGES"
-mkdir -p $SAVED_IMAGES
+sudo mkdir -p $SAVED_IMAGES
+sudo chown jenkins $SAVED_IMAGES
 mv $MAIN_TAR $SAVED_IMAGES/.
