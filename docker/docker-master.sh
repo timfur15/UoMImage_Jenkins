@@ -97,7 +97,7 @@ sudo mount /data/tmp/$MAIN_ISO /mnt/iso
 
 cd /mnt/iso
 sudo rm /data/tmp/$MAIN_TAR
-tar -cvf /data/tmp/$MAIN_TAR *
+sudo tar -cvf /data/tmp/$MAIN_TAR *
 
 #export LIBGUESTFS_BACKEND=direct
 #LIBGUESTFS_BACKEND=direct
