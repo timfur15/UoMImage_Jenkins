@@ -98,5 +98,4 @@ cat ./templates/other/template-bottom.json >> $OUTFILE
 
 packer build $OUTFILE
 
-sudo mkdir -p /data/saved_images/templates
 mv centos7-$BOX_NAME.box /data/saved_images/templates/.
