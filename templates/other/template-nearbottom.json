@@ -14,4 +14,4 @@
       "http_directory": "http",
       "iso_checksum_type": "sha256",
       "headless": "true",
-      "proxy": "proxy.man.ac.uk:3128",
+      "http_proxy": "proxy.man.ac.uk:3128",
