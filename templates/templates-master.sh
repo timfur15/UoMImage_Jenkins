@@ -97,3 +97,6 @@ echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
 cat ./templates/other/template-bottom.json >> $OUTFILE
 
 packer build $OUTFILE
+
+mkdir -p /data/saved_images/templates
+cp $OUTFILE /data/saved_images/templates/.
