@@ -18,7 +18,7 @@ VERSION_ASTER_DEV="aster-full-src-14.2.0"
 FILE_ASTER_STABLE="$VERSION_ASTER_STABLE-1.noarch.tar.gz"
 FILE_ASTER_DEV="$VERSION_ASTER_DEV-1.noarch.tar.gz"
 
-yum install xterm pyqt4 pyqt4-devel libxml2-devel wget gcc gcc-gfortran -y
+yum install xterm pyqt4 pyqt4-devel libxml2-devel wget gcc gcc-gfortran curl -y
 
 rm -rf $TMP_SATURNE $TMP_ASTER $MASTER_ASTER
 
@@ -28,7 +28,8 @@ echo -e "export TFELHOME=/opt/aster/public/tfel-3.1.1" >> /root/path.sh
 
 mkdir $TMP_SATURNE
 cd $TMP_SATURNE
-wget $URL_SATURNE/$FILE_SATURNE
+#wget $URL_SATURNE/$FILE_SATURNE
+curl -L $URL_SATURNE/$FILE_SATURNE -o $FILE_SATURNE -x $http_proxy
 tar -xvzf $FILE_SATURNE
 cd code_saturne*
 ./configure
@@ -43,7 +44,7 @@ yum install cmake python-devel python2-numpy tk bison flex lapack-devel blas-dev
 
 mkdir $TMP_ASTER
 cd $TMP_ASTER
-wget $URL_ASTER/$FILE_ASTER_STABLE
+curl -L $URL_ASTER/$FILE_ASTER_STABLE -o $FILE_ASTER_STABLE -x $http_proxy
 tar -xvzf $FILE_ASTER_STABLE
 cd $VERSION_ASTER_STABLE
 
@@ -53,7 +54,7 @@ do
 done
 
 cd $TMP_ASTER
-wget $URL_ASTER/$FILE_ASTER_DEV
+curl -L $URL_ASTER/$FILE_ASTER_DEV -o $FILE_ASTER_DEV -x $http_proxy
 tar -xvzf $FILE_ASTER_DEV
 cd $VERSION_ASTER_DEV
 python ./setup.py install tfel --noprompt
