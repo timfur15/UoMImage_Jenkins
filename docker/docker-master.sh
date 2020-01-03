@@ -68,7 +68,7 @@ echo -e "\n\nCreating Kickstart File $MAIN_KS"
 sed '/\@core$/d' $INPUT_KS > $MAIN_KS
 sed -i 's/\%packages.*/& --nocore/g' $MAIN_KS
 
-sed '/.*proxy.*/d' $MAIN_KS
+sed -i '/.*proxy.*/d' $MAIN_KS
 
 sed -i '0,/\%end/s//bind-utils\nbash\nyum\nvim-minimal\ncentos-release\nless\n\-kernel\*\n\-\*firmware\n\-os\-prober\n\-gettext\*\n\-bind\-license\n\-freetype\niputils\niproute\nsystemd\nrootfiles\n\-libteam\n\-teamd\ntar\npasswd\n\%end/' $MAIN_KS
 
