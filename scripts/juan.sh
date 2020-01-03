@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export http_proxy="http://proxy.man.ac.uk:3128"
+http_proxy="http://proxy.man.ac.uk:3128"
+
 TMP_ASTER="/tmp/code-aster"
 TMP_SATURNE="/tmp/code-saturne"
 MASTER_ASTER="/opt/aster"

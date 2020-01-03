@@ -1,4 +1,8 @@
 #!/bin/bash
+
+export http_proxy="http://proxy.man.ac.uk:3128"
+http_proxy="http://proxy.man.ac.uk:3128"
+
 export RROOT=/opt/apps/R
 export RVER=3.4.1
 export RDIR=$RROOT/$RVER
