@@ -105,4 +105,4 @@ tar -xvzf centos7-$BOX_NAME.box
 sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
 tar -cvzf centos7-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
 
-mv centos7-$BOX_NAME-v2.box /data/saved_images/templates/.
+mv centos7-$BOX_NAME-v2.box /data/saved_images/templates/centos7-$BOX_NAME.box
