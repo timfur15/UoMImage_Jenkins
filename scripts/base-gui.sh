@@ -19,7 +19,7 @@ yum -y install gcc make gcc-c++ kernel-devel-`uname -r` perl grub2-tools net-too
 yum -y install epel-release.noarch
 rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm --httpproxy proxy.man.ac.uk --httpport 3128
 yum -y install puppet
-gem install hiera-eyaml hiera-eyaml-kms
+gem install hiera-eyaml hiera-eyaml-kms -p proxy.man.ac.uk:3128
 
 echo "debug: Installing GUI packages"
 echo "Installing GUI packages"
