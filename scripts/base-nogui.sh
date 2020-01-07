@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "proxy=http://proxy.man.ac.uk:3128" >> /etc/yum.conf
 
 exec >> /tmp/base-nogui.log
 exec 2>&1
