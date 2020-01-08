@@ -87,13 +87,17 @@ echo -e "          \"output\": \"centos7-$BOX_NAME.box\"" >> $OUTFILE
 cat ./templates/other/template-nearbottom.json >> $OUTFILE
 
 export http_proxy="http://proxy.man.ac.uk:3128"
-wget $MASTERURL/sha256sum.txt -P /tmp
+#wget $MASTERURL/sha256sum.txt -P /tmp
 
-CHECKSUM=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f1`
-ISOURL=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f3`
+#CHECKSUM=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f1`
+#ISOURL=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f3`
 
-echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
-echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
+#echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
+#echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
+
+echo -e "       \"iso_checksum\": \"9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d\"," >> $OUTFILE
+echo -e "       \"iso_url\": \"file://data/isos/CentOS-7-x86_64-Minimal-1908.iso\"," >> $OUTFILE
+
 cat ./templates/other/template-bottom.json >> $OUTFILE
 
 packer build $OUTFILE
