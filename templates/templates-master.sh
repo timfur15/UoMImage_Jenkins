@@ -98,6 +98,7 @@ cat ./templates/other/template-bottom.json >> $OUTFILE
 
 packer build $OUTFILE
 
+rm -rf /data/tmp/$BOX_NAME
 mkdir /data/tmp/$BOX_NAME
 mv centos7-$BOX_NAME.box /data/tmp/$BOX_NAME/.
 cd /data/tmp/$BOX_NAME
