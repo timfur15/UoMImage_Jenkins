@@ -104,10 +104,10 @@ cat ./templates/other/template-bottom.json >> $OUTFILE
 
 packer build $OUTFILE
 
-rm -rf /data/tmp/$BOX_NAME
-mkdir /data/tmp/$BOX_NAME
-mv centos7-$BOX_NAME.box /data/tmp/$BOX_NAME/.
-cd /data/tmp/$BOX_NAME
+rm -rf /data/tmp/post-packer/$BOX_NAME
+mkdir /data/tmp/post-packer/$BOX_NAME
+mv centos7-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
+cd /data/tmp/post-packer/$BOX_NAME
 tar -xvzf centos7-$BOX_NAME.box
 sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
 tar -cvzf centos7-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
