@@ -1,5 +1,7 @@
 #!/bin/bash
 
+TMPDIR=/data/tmp/packer
+
 export http_proxy="http://proxy.man.ac.uk:3128"
 http_proxy="http://proxy.man.ac.uk:3128"
 
