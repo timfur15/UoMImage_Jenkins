@@ -106,4 +106,4 @@ then
         exit 1
 fi
 
-packer build $OUTFILE
+TMPDIR=/data/tmp/packer packer build $OUTFILE
