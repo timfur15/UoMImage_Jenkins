@@ -102,7 +102,7 @@ echo -e "      \"iso_url\": \"file:///data/isos/CentOS-7-x86_64-Minimal-1908.iso
 
 cat ./templates/other/template-bottom.json >> $OUTFILE
 
-packer build $OUTFILE
+TMPDIR=/data/tmp/packer packer build $OUTFILE
 
 rm -rf /data/tmp/post-packer/$BOX_NAME
 mkdir /data/tmp/post-packer/$BOX_NAME
