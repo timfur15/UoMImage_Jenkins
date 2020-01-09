@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export http_proxy="http://proxy.man.ac.uk:3128"
+http_proxy="http://proxy.man.ac.uk:3128"
+
 # download and install
 wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh -O /tmp/anaconda.sh
 BASE=/opt/apps
