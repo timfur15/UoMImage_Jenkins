@@ -16,6 +16,8 @@ export PATH=$BASE/anaconda/bin:$PATH # add to PATH
 echo 'export PATH=$BASE/anaconda/bin:$PATH' >> /etc/bashrc
 hash -r
 
+conda config --set proxy_servers.http http://proxy.man.ac.uk:3128
+
 # some configuration to make it easy to install things
 conda config --set always_yes yes --set changeps1 no
 conda update -q conda
