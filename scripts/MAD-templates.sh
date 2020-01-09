@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export http_proxy="http://proxy.man.ac.uk:3128"
+http_proxy="http://proxy.man.ac.uk:3128"
+
 # Mongo DB
 yum install mongodb-server -y
 systemctl enable mongod
