@@ -99,6 +99,7 @@ echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
 echo -e "      \"iso_url\": \"file:///data/isos/CentOS-7-x86_64-Minimal-1908.iso\"," >> $OUTFILE
 cat ./templates/other/template-bottom-aws.json >> $OUTFILE
 
+export AWS_PROFILE=default
 AWS_PROFILE=default
 
 #AWS_ACCESS_KEY_ID=AKIA3AASE62LSRPSL4NA
