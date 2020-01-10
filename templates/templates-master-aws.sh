@@ -92,21 +92,23 @@ echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
 echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
 cat ./templates/other/template-bottom-aws.json >> $OUTFILE
 
-AWS_ACCESS_KEY_ID=AKIA3AASE62LSRPSL4NA
-AWS_DEFAULT_REGION=us-east-1
+AWS_PROFILE=default
 
-if [[ -z $AWS_DEFAULT_REGION ]];
-then
-        echo -e "\n\n*** ERROR: You need to say which AWS region to use via the AWS_DEFAULT_REGION enviroment vars ***\n\n"
-        exit 1
-elif [[ -z $AWS_ACCESS_KEY_ID ]];
-then
-        echo -e "\n\n*** ERROR: You need to select your AWS_ACCESS_KEY_ID via the enviroment vars ***\n\n"
-        exit 1
-elif [[ -z $AWS_SECRET_ACCESS_KEY ]];
-then
-        echo -e "\n\n*** ERROR: You need to select your AWS_SECRET_ACCESS_KEY via the enviroment vars ***\n\n"
-        exit 1
-fi
+#AWS_ACCESS_KEY_ID=AKIA3AASE62LSRPSL4NA
+#AWS_DEFAULT_REGION=us-east-1
+#
+#if [[ -z $AWS_DEFAULT_REGION ]];
+#then
+#        echo -e "\n\n*** ERROR: You need to say which AWS region to use via the AWS_DEFAULT_REGION enviroment vars ***\n\n"
+#        exit 1
+#elif [[ -z $AWS_ACCESS_KEY_ID ]];
+#then
+#        echo -e "\n\n*** ERROR: You need to select your AWS_ACCESS_KEY_ID via the enviroment vars ***\n\n"
+#        exit 1
+#elif [[ -z $AWS_SECRET_ACCESS_KEY ]];
+#then
+#        echo -e "\n\n*** ERROR: You need to select your AWS_SECRET_ACCESS_KEY via the enviroment vars ***\n\n"
+#        exit 1
+#fi
 
 TMPDIR=/data/tmp/packer packer build $OUTFILE
