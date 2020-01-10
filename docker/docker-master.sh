@@ -1,6 +1,7 @@
 #!/bin/bash
 
 /usr/bin/virsh net-autostart default
+/usr/bin/virsh net-destroy default
 /usr/bin/virsh net-start default
 
 export http_proxy="http://proxy.man.ac.uk:3128"
