@@ -11,7 +11,7 @@ chown vagrant. $RROOT
 cd $RROOT
 mkdir $RVER archive build
 cd archive
-wget https://cran.rstudio.com/src/base/R-3/R-${RVER}.tar.gz
+wget "https://cran.rstudio.com/src/base/R-3/R-${RVER}.tar.gz"
 cd ../build
 tar xzf ../archive/R-$RVER.tar.gz
 cd R-$RVER
