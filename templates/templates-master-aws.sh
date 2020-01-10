@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export http_proxy="http://proxy.man.ac.uk:3128"
+http_proxy="http://proxy.man.ac.uk:3128"
+
 MASTERURL="http://mirrors.ukfast.co.uk/sites/ftp.centos.org/7/isos/x86_64"
 #MASTERURL="http://ftp.pbone.net/pub/centos/7/isos/x86_64/"
 
