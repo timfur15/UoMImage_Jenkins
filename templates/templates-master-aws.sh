@@ -89,7 +89,8 @@ CHECKSUM=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f1`
 ISOURL=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f3`
 
 echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
-echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
+#echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
+echo -e "      \"iso_url\": \"file:///data/isos/CentOS-7-x86_64-Minimal-1908.iso\"," >> $OUTFILE
 cat ./templates/other/template-bottom-aws.json >> $OUTFILE
 
 AWS_PROFILE=default
