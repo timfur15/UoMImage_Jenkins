@@ -93,7 +93,7 @@ echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
 cat ./templates/other/template-bottom-aws.json >> $OUTFILE
 
 aws_access_key_id = AKIA3AASE62LSRPSL4NA
-region = us-east-1
+aws_default_region = us-east-1
 
 if [[ -z $AWS_DEFAULT_REGION ]];
 then
