@@ -3,9 +3,6 @@
 export http_proxy="http://proxy.man.ac.uk:3128"
 http_proxy="http://proxy.man.ac.uk:3128"
 
-export HTTP_PROXY="http://proxy.man.ac.uk:3128"
-HTTP_PROXY="http://proxy.man.ac.uk:3128"
-
 # download and install
 wget --quiet "https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh" -O "/tmp/anaconda.sh"
 BASE=/opt/apps
@@ -15,6 +12,9 @@ rm /tmp/anaconda.sh
 export PATH=$BASE/anaconda/bin:$PATH # add to PATH
 echo 'export PATH=$BASE/anaconda/bin:$PATH' >> /etc/bashrc
 hash -r
+
+export HTTP_PROXY="http://proxy.man.ac.uk:3128"
+HTTP_PROXY="http://proxy.man.ac.uk:3128"
 
 conda config --set proxy_servers.http http://proxy.man.ac.uk:3128
 
