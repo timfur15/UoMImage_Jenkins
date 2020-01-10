@@ -30,42 +30,42 @@ fi
 
 case "$selection" in
 	1)
-		BOX_NAME="juan-w-GUI"
+		BOX_NAME="juan-w-GUI-AWS"
 #		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh juan.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh juan.sh virtualbox.sh"
 		;;
 	2)
-		BOX_NAME="mad-w-GUI"
+		BOX_NAME="mad-w-GUI-AWS"
 #		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh MAD.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh MAD-templates.sh virtualbox.sh"
 		;;
 	3)
-		BOX_NAME="r-w-GUI"
+		BOX_NAME="r-w-GUI-AWS"
 		PACKAGES="base-gui.sh anaconda.sh vagrant.sh R.sh virtualbox.sh"
 		;;
 	4)
-		BOX_NAME="base-w-GUI"
+		BOX_NAME="base-w-GUI-AWS"
 #		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh tigervnc.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh"
 		;;
 	5)
-		BOX_NAME="juan-no-GUI"
+		BOX_NAME="juan-no-GUI-AWS"
 		PACKAGES="base-nogui.sh vagrant.sh juan.sh virtualbox.sh"
 		;;
 	6)
-		BOX_NAME="mad-no-GUI"
+		BOX_NAME="mad-no-GUI-AWS"
 		PACKAGES="base-nogui.sh vagrant.sh MAD-templates.sh virtualbox.sh"
 		;;
 	7)
-		BOX_NAME="r-no-GUI"
+		BOX_NAME="r-no-GUI-AWS"
 		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh R.sh virtualbox.sh"
 		;;
 	8)
-		BOX_NAME="base-no-GUI"
+		BOX_NAME="base-no-GUI-AWS"
 		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh"
 		;;
 	9)
-		BOX_NAME="Minimal"
+		BOX_NAME="Minimal-AWS"
 		PACKAGES="minimal.sh"
 		;;
 	esac
