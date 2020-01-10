@@ -92,6 +92,9 @@ echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
 echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
 cat ./templates/other/template-bottom-aws.json >> $OUTFILE
 
+aws_access_key_id = AKIA3AASE62LSRPSL4NA
+region = us-east-1
+
 if [[ -z $AWS_DEFAULT_REGION ]];
 then
         echo -e "\n\n*** ERROR: You need to say which AWS region to use via the AWS_DEFAULT_REGION enviroment vars ***\n\n"
