@@ -92,8 +92,8 @@ echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
 echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
 cat ./templates/other/template-bottom-aws.json >> $OUTFILE
 
-aws_access_key_id = AKIA3AASE62LSRPSL4NA
-aws_default_region = us-east-1
+AWS_ACCESS_KEY_ID=AKIA3AASE62LSRPSL4NA
+AWS_DEFAULT_REGION=us-east-1
 
 if [[ -z $AWS_DEFAULT_REGION ]];
 then
