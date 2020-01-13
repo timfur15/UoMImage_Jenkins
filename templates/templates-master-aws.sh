@@ -119,4 +119,6 @@ AWS_PROFILE=tmf
 #        exit 1
 #fi
 
+/usr/bin/env > /data/tmp/jenkins-env.txt
+
 TMPDIR=/data/tmp/packer packer build $OUTFILE
