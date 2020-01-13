@@ -1,3 +1,4 @@
+      "headless": "true",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
