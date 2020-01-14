@@ -18,7 +18,7 @@ VERSION_ASTER_DEV="aster-full-src-14.2.0"
 FILE_ASTER_STABLE="$VERSION_ASTER_STABLE-1.noarch.tar.gz"
 FILE_ASTER_DEV="$VERSION_ASTER_DEV-1.noarch.tar.gz"
 
-yum install xterm pyqt4 pyqt4-devel libxml2-devel wget gcc gcc-gfortran curl -y
+yum install xterm pyqt4 pyqt4-devel libxml2-devel wget gcc gcc-gfortran curl python-matplotlib scipy numpy -y
 
 rm -rf $TMP_SATURNE $TMP_ASTER $MASTER_ASTER
 
