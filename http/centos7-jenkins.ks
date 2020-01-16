@@ -16,7 +16,7 @@ install
 #cdrom
 lang en_GB.UTF-8
 keyboard uk
-network --bootproto=dhcp --device=eth0 --activate --onboot=on --noipv6
+network --bootproto=dhcp --device=ens2 --activate --onboot=on --noipv6
 rootpw --plaintext vagrant
 authconfig --enableshadow --passalgo=sha512
 selinux --permissive
