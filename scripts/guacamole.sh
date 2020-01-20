@@ -28,9 +28,10 @@ done
 echo -e "guacd-hostname: localhost\nguacd-port:    4822\nuser-mapping:    /etc/guacamole/user-mapping.xml\nauth-provider:    net.sourceforge.guacamole.net.basic.BasicFileAuthenticationProvider\nbasic-user-mapping:    /etc/guacamole/user-mapping.xml" > /etc/guacamole/guacamole.properties
 
 ln -s /etc/guacamole/guacamole.properties /usr/share/tomcat/.guacamole/
+chmod 644 /etc/guacamole/guacamole.properties
 
-md5=`printf '%s' "tecmint01" | md5sum`
-echo -e "<user-mapping>\n\t<authorize>\n\t\tusername="tecmint"\n\t\tpassword="$md5"\n\t\tencoding="md5">\n\t\t<connection name="RHEL 7">\n\t\t\t<protocol>ssh</protocol>\n\t\t\t<param name="hostname">10.0.2.15</param>\n\t\t\t<param name="port">22</param>\n\t\t\t<param name="username">gacanepa</param>\n\t\t</connection>\n\t\t<connection name="Linux Desktop">\n\t\t\t<protocol>vnc</protocol>\n\t\t\t<param name="hostname">10.0.2.16</param>\n\t\t\t<param name="port">5900</param>\n\t\t</connection>\n\t</authorize>\n</user-mapping>" > /etc/guacamole/user-mapping.xml
+md5=`printf '%s' "tecmint01" | md5sum | cut -c-32`
+echo -e "<user-mapping>\n\t<authorize\n\t\tusername=\"tecmint\"\n\t\tpassword=\"$md5\"\n\t\tencoding=\"md5\">\n\t\t<connection name=\"RHEL 7\">\n\t\t\t<protocol>ssh</protocol>\n\t\t\t<param name=\"hostname\">10.0.2.20</param>\n\t\t\t<param name=\"port\">22</param>\n\t\t\t<param name=\"username\">gacanepa</param>\n\t\t</connection>\n\t\t<connection name=\"Linux Desktop\">\n\t\t\t<protocol>vnc</protocol>\n\t\t\t<param name=\"hostname\">10.0.2.21</param>\n\t\t\t<param name=\"port\">5900</param>\n\t\t</connection>\n\t</authorize>\n</user-mapping>" > /etc/guacamole/user-mapping.xml
 chmod 600 /etc/guacamole/user-mapping.xml
 chown tomcat:tomcat /etc/guacamole/user-mapping.xml
 
