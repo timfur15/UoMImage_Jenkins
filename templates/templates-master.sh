@@ -72,7 +72,7 @@ case "$selection" in
 		BOX_NAME="guacamole-no-GUI"
 		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh guacamole.sh"
 		;;
-	10)
+	11)
 		BOX_NAME="guacamole-w-GUI"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh guacamole.sh"
 		;;
