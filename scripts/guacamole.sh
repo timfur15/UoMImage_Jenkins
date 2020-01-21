@@ -35,6 +35,12 @@ echo -e "<user-mapping>\n\t<authorize\n\t\tusername=\"tecmint\"\n\t\tpassword=\"
 chmod 600 /etc/guacamole/user-mapping.xml
 chown tomcat:tomcat /etc/guacamole/user-mapping.xml
 
+TOMCAT_USERS="/usr/share/tomcat/conf/tomcat-users.xml"
+echo -e "<?xml version='1.0' encoding='utf-8'?>" > $TOMCAT_USERS
+echo -e "<tomcat-users>" >> $TOMCAT_USERS
+echo -e "<user name=\"admin\" password=\"adminadmin\" roles=\"admin,manager,admin-gui,admin-script,manager-gui,manager-script,manager-jmx,manager-status\" />" >> $TOMCAT_USERS
+echo -e "</tomcat-users>" >> $TOMCAT_USERS
+
 systemctl enable tomcat
 systemctl start tomcat
 /usr/local/sbin/guacd
