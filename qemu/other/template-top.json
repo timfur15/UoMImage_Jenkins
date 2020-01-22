@@ -1,8 +1,8 @@
 {
-  "provisioners": [
+  "provisioners":
+  [
     {
       "type": "shell",
       "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
-      "override": {
-        "virtualbox-iso": {
-          "scripts": [
+      "pause_before": "5s",
+      "scripts": [
