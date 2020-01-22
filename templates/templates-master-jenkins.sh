@@ -13,6 +13,8 @@ echo -e "\n6) MAD no GUI (Mongo DB, Apache Spark and Django)"
 echo -e "\n7) R no GUI "
 echo -e "\n8) Base no GUI "
 echo -e "\n9) Minimal "
+echo -e "\n10) Guacamole no GUI "
+echo -e "\n11) Guacamole with GUI "
 echo -e ""
 
 if [ ! -z "$1" ]
@@ -62,6 +64,14 @@ case "$selection" in
 		BOX_NAME="Minimal"
 		PACKAGES="minimal.sh"
 		;;
+      10)
+                BOX_NAME="guacamole-no-GUI"
+                PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh guacamole.sh"
+                ;;
+        11)
+                BOX_NAME="guacamole-w-GUI"
+                PACKAGES="base-gui.sh vagrant.sh virtualbox.sh guacamole.sh"
+                ;;
 	esac
 
 OUTFILE="./templates/other/template-$BOX_NAME.json"
