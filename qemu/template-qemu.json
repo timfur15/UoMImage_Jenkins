@@ -1,0 +1,57 @@
+{
+  "builders":
+  [
+    {
+      "type": "qemu",
+      "accelerator": "kvm",
+      "headless": false,
+      "qemuargs": [
+        [ "-m", "2048M" ],
+        [ "-smp", "cpus=1,maxcpus=16,cores=4" ]
+      ],
+      "disk_interface": "virtio-scsi",
+      "disk_size": 20480,
+      "format": "qcow2",
+      "net_device": "virtio-net",
+ 
+      "iso_url": "http://repos-va.psychz.net/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-Minimal-1810.iso",
+      "iso_checksum": "38d5d51d9d100fd73df031ffd6bd8b1297ce24660dc8c13a3b8b4534a4bd291c",
+      "iso_checksum_type": "sha256",
+ 
+      "vm_name": "centos7-base",
+      "output_directory": "centos7-base-img",
+ 
+      "http_directory": "http",
+      "http_port_min": 10082,
+      "http_port_max": 10089,
+ 
+      "ssh_host_port_min": 2222,
+      "ssh_host_port_max": 2229,
+ 
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "1200s",
+ 
+      "boot_wait": "10s",
+      "boot_command": [
+         "<tab> text append net.ifnames=0 biosdevname=0 ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos7.ks<enter><wait>"
+      ],
+ 
+      "shutdown_command": "echo '/sbin/halt -h -p' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'"
+    }
+  ],
+ 
+  "provisioners":
+  [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
+      "pause_before": "5s",
+      "scripts": [
+            "../scripts/base-gui.sh",
+            "../scripts/vagrant.sh"
+	  ]
+    }
+  ]
+}
