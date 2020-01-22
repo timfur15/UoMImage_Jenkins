@@ -25,12 +25,10 @@ fi
 case "$selection" in
 	1)
 		BOX_NAME="juan-w-GUI"
-#		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh juan.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh juan.sh virtualbox.sh"
 		;;
 	2)
 		BOX_NAME="mad-w-GUI"
-#		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh MAD.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh MAD-templates.sh virtualbox.sh"
 		;;
 	3)
@@ -39,7 +37,6 @@ case "$selection" in
 		;;
 	4)
 		BOX_NAME="base-w-GUI"
-#		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh tigervnc.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh"
 		;;
 	5)
@@ -64,9 +61,9 @@ case "$selection" in
 		;;
 	esac
 
-OUTFILE="./templates/other/template-$BOX_NAME.json"
+OUTFILE="./qemu/other/template-$BOX_NAME.json"
 
-cat ./templates/other/template-top.json > $OUTFILE
+cat ./qemu/other/template-top.json > $OUTFILE
 SIZE=0; for i in $PACKAGES; do SIZE=$((SIZE+1)); done
 COUNT=0
 for i in $PACKAGES
@@ -79,9 +76,9 @@ do
 		echo "            \"scripts\/$i\"" >> $OUTFILE
 	fi
 done
-cat ./templates/other/template-middle.json >> $OUTFILE
-echo -e "          \"output\": \"centos7-$BOX_NAME.box\"" >> $OUTFILE
-cat ./templates/other/template-nearbottom.json >> $OUTFILE
+cat ./qemu/other/template-middle.json >> $OUTFILE
+#echo -e "          \"output\": \"centos7-$BOX_NAME.box\"" >> $OUTFILE
+#cat ./qemu/other/template-nearbottom.json >> $OUTFILE
 
 #export http_proxy="http://proxy.man.ac.uk:3128"
 wget $MASTERURL/sha256sum.txt -P /tmp
@@ -91,6 +88,6 @@ ISOURL=`grep Minimal /tmp/sha256sum.txt | grep iso | cut -d' ' -f3`
 
 echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
 echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
-cat ./templates/other/template-bottom.json >> $OUTFILE
+cat ./qemu/other/template-bottom.json >> $OUTFILE
 
 /usr/local/bin/packer build $OUTFILE
