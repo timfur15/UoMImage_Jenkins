@@ -12,8 +12,6 @@
 # Basic setup information
 url --url="http://mirrors.kernel.org/centos/8/BaseOS/x86_64/os/"
 url --proxy="http://proxy.man.ac.uk:3128"
-install
-#cdrom
 lang en_GB.UTF-8
 keyboard uk
 network --bootproto=dhcp --device=ens2 --activate --onboot=on --noipv6
