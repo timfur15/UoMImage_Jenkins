@@ -79,9 +79,9 @@ case "$selection" in
 		;;
 	esac
 
-OUTFILE="./templates/other/template-$BOX_NAME.json"
+OUTFILE="./templates-c8/other/template-$BOX_NAME.json"
 
-cat ./templates/other/template-top.json > $OUTFILE
+cat ./templates-c8/other/template-top.json > $OUTFILE
 SIZE=0; for i in $PACKAGES; do SIZE=$((SIZE+1)); done
 COUNT=0
 for i in $PACKAGES
@@ -94,9 +94,9 @@ do
 		echo "            \"scripts\/$i\"" >> $OUTFILE
 	fi
 done
-cat ./templates/other/template-middle.json >> $OUTFILE
+cat ./templates-c8/other/template-middle.json >> $OUTFILE
 echo -e "          \"output\": \"centos8-$BOX_NAME.box\"" >> $OUTFILE
-cat ./templates/other/template-nearbottom.json >> $OUTFILE
+cat ./templates-c8/other/template-nearbottom.json >> $OUTFILE
 
 export http_proxy="http://proxy.man.ac.uk:3128"
 #wget $MASTERURL/sha256sum.txt -P /tmp
@@ -110,7 +110,7 @@ export http_proxy="http://proxy.man.ac.uk:3128"
 echo -e "      \"iso_checksum\": \"a7993a0d4b7fef2433e0d4f53530b63c715d3aadbe91f152ee5c3621139a2cbc\"," >> $OUTFILE
 echo -e "      \"iso_url\": \"file:///data/isos/CentOS-8-x86_64-1905-boot.iso\"," >> $OUTFILE
 
-cat ./templates/other/template-bottom.json >> $OUTFILE
+cat ./templates-c8/other/template-bottom.json >> $OUTFILE
 
 TMPDIR=/data/tmp/packer packer build $OUTFILE
 

@@ -5,8 +5,19 @@ TMPDIR=/data/tmp/packer
 export http_proxy="http://proxy.man.ac.uk:3128"
 http_proxy="http://proxy.man.ac.uk:3128"
 
+ver=7
+echo -e "\nPlease enter whether you would like Centos 7 or 8...\n"
+if [ ! -z "$2" ]
+then
+        ver=$2
+else
+        read -p "Version: " ver
+fi
+echo -e "\nVersion of Centos selected is $ver"
+
+
 #MASTERURL="http://mirrors.ukfast.co.uk/sites/ftp.centos.org/7/isos/x86_64"
-MASTERURL="http://ftp.pbone.net/pub/centos/7/isos/x86_64"
+MASTERURL="http://ftp.pbone.net/pub/centos/$ver/isos/x86_64"
 
 echo -e "\nPlease select which image to create...\n"
 echo -e "\n1) Juan with GUI (Code Aster & Code Saturn)"
@@ -92,7 +103,7 @@ do
 	fi
 done
 cat ./templates/other/template-middle.json >> $OUTFILE
-echo -e "          \"output\": \"centos7-$BOX_NAME.box\"" >> $OUTFILE
+echo -e "          \"output\": \"centos$ver-$BOX_NAME.box\"" >> $OUTFILE
 cat ./templates/other/template-nearbottom.json >> $OUTFILE
 
 export http_proxy="http://proxy.man.ac.uk:3128"
@@ -104,19 +115,33 @@ export http_proxy="http://proxy.man.ac.uk:3128"
 #echo -e "      \"iso_checksum\": \"$CHECKSUM\"," >> $OUTFILE
 #echo -e "      \"iso_url\": \"$MASTERURL/$ISOURL\"," >> $OUTFILE
 
-echo -e "      \"iso_checksum\": \"9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d\"," >> $OUTFILE
-echo -e "      \"iso_url\": \"file:///data/isos/CentOS-7-x86_64-Minimal-1908.iso\"," >> $OUTFILE
+
+case "$ver" in
+	7)
+		echo -e "      \"iso_checksum\": \"9a2c47d97b9975452f7d582264e9fc16d108ed8252ac6816239a3b58cef5c53d\"," >> $OUTFILE
+		echo -e "      \"iso_url\": \"file:///data/isos/CentOS-7-x86_64-Minimal-1908.iso\"," >> $OUTFILE
+		;;
+	8)
+		echo -e "      \"iso_checksum\": \"a7993a0d4b7fef2433e0d4f53530b63c715d3aadbe91f152ee5c3621139a2cbc\"," >> $OUTFILE
+		echo -e "      \"iso_url\": \"file:///data/isos/CentOS-8-x86_64-1905-boot.iso\"," >> $OUTFILE
+		;;
+	*)
+		echo -e "\nFATAL ERROR: INVALID CENTOS VERSION"
+		exit -7
+		;;
+	esac
 
 cat ./templates/other/template-bottom.json >> $OUTFILE
 
+exit 1
 TMPDIR=/data/tmp/packer packer build $OUTFILE
 
 rm -rf /data/tmp/post-packer/$BOX_NAME
 mkdir /data/tmp/post-packer/$BOX_NAME
-mv centos7-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
+mv centos$ver-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
 cd /data/tmp/post-packer/$BOX_NAME
-tar -xvzf centos7-$BOX_NAME.box
+tar -xvzf centos$ver-$BOX_NAME.box
 sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
-tar -cvzf centos7-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
+tar -cvzf centos$ver-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
 
-mv centos7-$BOX_NAME-v2.box /data/saved_images/templates/centos7-$BOX_NAME.box
+mv centos$ver-$BOX_NAME-v2.box /data/saved_images/templates/centos$ver-$BOX_NAME.box
