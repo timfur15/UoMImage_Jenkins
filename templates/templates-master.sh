@@ -32,12 +32,10 @@ fi
 case "$selection" in
 	1)
 		BOX_NAME="juan-w-GUI"
-#		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh juan.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh juan.sh virtualbox.sh"
 		;;
 	2)
 		BOX_NAME="mad-w-GUI"
-#		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh MAD.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh MAD-templates.sh virtualbox.sh"
 		;;
 	3)
@@ -46,7 +44,6 @@ case "$selection" in
 		;;
 	4)
 		BOX_NAME="base-w-GUI"
-#		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh tigervnc.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh"
 		;;
 	5)
@@ -95,7 +92,7 @@ do
 	fi
 done
 cat ./templates/other/template-middle.json >> $OUTFILE
-echo -e "          \"output\": \"centos7-$BOX_NAME.box\"" >> $OUTFILE
+echo -e "          \"output\": \"centos8-$BOX_NAME.box\"" >> $OUTFILE
 cat ./templates/other/template-nearbottom.json >> $OUTFILE
 
 export http_proxy="http://proxy.man.ac.uk:3128"
@@ -116,10 +113,10 @@ TMPDIR=/data/tmp/packer packer build $OUTFILE
 
 rm -rf /data/tmp/post-packer/$BOX_NAME
 mkdir /data/tmp/post-packer/$BOX_NAME
-mv centos7-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
+mv centos8-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
 cd /data/tmp/post-packer/$BOX_NAME
-tar -xvzf centos7-$BOX_NAME.box
+tar -xvzf centos8-$BOX_NAME.box
 sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
-tar -cvzf centos7-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
+tar -cvzf centos8-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
 
-mv centos7-$BOX_NAME-v2.box /data/saved_images/templates/centos7-$BOX_NAME.box
+mv centos8-$BOX_NAME-v2.box /data/saved_images/templates/centos8-$BOX_NAME.box
