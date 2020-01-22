@@ -111,12 +111,13 @@ cat ./qemu/other/template-bottom.json >> $OUTFILE
 
 TMPDIR=/data/tmp/packer packer build $OUTFILE
 
-rm -rf /data/tmp/post-packer/$BOX_NAME
-mkdir /data/tmp/post-packer/$BOX_NAME
-mv centos7-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
-cd /data/tmp/post-packer/$BOX_NAME
-tar -xvzf centos7-$BOX_NAME.box
-sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
-tar -cvzf centos7-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
+#QEMU_OUTPUT=output-qemu/packer-qemu
+#rm -rf /data/tmp/post-packer/$BOX_NAME
+#mkdir /data/tmp/post-packer/$BOX_NAME
+#mv output-qemu/packer-qemu /data/tmp/post-packer/$BOX_NAME/.
+#cd /data/tmp/post-packer/$BOX_NAME
+#tar -xvzf centos7-$BOX_NAME.box
+#sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
+#tar -cvzf centos7-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
 
-mv centos7-$BOX_NAME-v2.box /data/saved_images/qemu/centos7-$BOX_NAME.box
+mv output-qemu/packer-qemu /data/saved_images/qemu/centos7-$BOX_NAME.box
