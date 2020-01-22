@@ -10,7 +10,7 @@
 # by using: cat centos-root.tar.xz | docker import -i imagename
 
 # Basic setup information
-url --url="http://mirrors.kernel.org/centos/7/os/x86_64/"
+url --url="http://mirrors.kernel.org/centos/8/os/x86_64/"
 url --proxy="http://proxy.man.ac.uk:3128"
 install
 #cdrom
