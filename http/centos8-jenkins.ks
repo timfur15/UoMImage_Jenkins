@@ -10,7 +10,8 @@
 # by using: cat centos-root.tar.xz | docker import -i imagename
 
 # Basic setup information
-url --url="http://mirrors.ukfast.co.uk/sites/ftp.centos.org/8/BaseOS/x86_64/os/" --proxy="http://proxy.man.ac.uk:3128"
+#url --url="http://mirrors.ukfast.co.uk/sites/ftp.centos.org/8/BaseOS/x86_64/os/" --proxy="http://proxy.man.ac.uk:3128"
+url --url="http://ftp.tu-chemnitz.de/pub/linux/centos/8.0.1905/BaseOS/x86_64/os/" --proxy="http://proxy.man.ac.uk:3128"
 lang en_GB.UTF-8
 keyboard uk
 network --bootproto=dhcp --device=ens2 --activate --onboot=on --noipv6
