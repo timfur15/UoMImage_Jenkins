@@ -30,7 +30,7 @@ yum -y install gnome-classic-session gnome-terminal nautilus-open-terminal contr
 yum groupinstall "MATE Desktop" -y
 unlink /etc/systemd/system/default.target
 ln -sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target
-yum -y install wget
+yum -y install wget tar
 
 echo "debug: Installing Xfce"
 echo "Installing Xfce"
