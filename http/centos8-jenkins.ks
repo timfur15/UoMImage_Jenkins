@@ -24,6 +24,7 @@ timezone Europe/London
 bootloader --location=mbr --driveorder=sda --append="crashkernel=128M rhgb"
 eula --agreed
 repo --name="CentOS" --baseurl=http://mirror.centos.org/centos/$releasever/BaseOS/$basearch/os/ --cost=100
+repo --name="AppStream" --baseurl=http://mirror.centos.org/centos/$releasever/AppStream/$basearch/os/ --cost=100
 #repo --name="Updates" --baseurl=http://mirror.centos.org/centos/$releasever/updates/$basearch/ --cost=100
 #text
 skipx
