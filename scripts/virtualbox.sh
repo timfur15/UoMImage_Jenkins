@@ -2,6 +2,8 @@
 
 echo "debug: Executing scripts/virtualbox.sh"
 
+yum install -y elfutils-libelf elfutils-libelf-devel
+
 uname -a
 
 mount -o loop /home/vagrant/VBoxGuestAdditions.iso /mnt
