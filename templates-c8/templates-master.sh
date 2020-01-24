@@ -20,6 +20,7 @@ echo -e "\n8) Base no GUI "
 echo -e "\n9) Minimal "
 echo -e "\n10) Guacamole no GUI "
 echo -e "\n11) Guacamole with GUI "
+echo -e "\n12) Base no GUI Test"
 echo -e ""
 
 if [ ! -z "$1" ]
@@ -77,6 +78,10 @@ case "$selection" in
 		BOX_NAME="centos8-guacamole-w-GUI"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh guacamole.sh"
 		;;
+	12)
+		BOX_NAME="centos8-base-no-GUI-Test"
+		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh"
+		;;
 	esac
 
 OUTFILE="./templates-c8/other/template-$BOX_NAME.json"
@@ -96,7 +101,12 @@ do
 done
 cat ./templates-c8/other/template-middle.json >> $OUTFILE
 echo -e "          \"output\": \"$BOX_NAME.box\"" >> $OUTFILE
-cat ./templates-c8/other/template-nearbottom.json >> $OUTFILE
+if [ $selection eq '12' ]
+then
+	cat ./templates-c8/other/template-nearbottom-test.json >> $OUTFILE
+else
+	cat ./templates-c8/other/template-nearbottom.json >> $OUTFILE
+fi
 
 export http_proxy="http://proxy.man.ac.uk:3128"
 #wget $MASTERURL/sha256sum.txt -P /tmp
