@@ -1,4 +1,5 @@
-yum install cairo-devel libjpeg-devel libpng-devel uuid-devel freerdp-devel pango-devel libssh2-devel libssh-devel tomcat tomcat-admin-webapps tomcat-webapps libvncserver-devel freerdp1.2 freerdp-libs -y
+#dnf install cairo-devel libjpeg-turbo-devel libpng-devel uuid-devel freerdp-devel pango-devel libssh2-devel libssh-devel tomcat tomcat-admin-webapps tomcat-webapps libvncserver-devel freerdp1.2 freerdp-libs -y
+dnf install cairo-devel libjpeg-turbo-devel libpng-devel uuid-devel pango-devel libssh-devel libvncserver freerdp freerdp-libs -y
 
 export http_proxy=proxy.man.ac.uk:3128
 export https_proxy=proxy.man.ac.uk:3128
