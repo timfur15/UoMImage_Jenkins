@@ -136,6 +136,7 @@ SAVED_IMAGES=/data/saved_images/templates
 VAGRANT=/data/vagrant
 mv $BOX_NAME-v2.box $SAVED_IMAGES/$BOX_NAME.box
 vagrant box remove $SAVED_IMAGES/$BOX_NAME.box
+rm -rf $VAGRANT/$BOX_NAME
 mkdir $VAGRANT/$BOX_NAME
 cd $VAGRANT/$BOX_NAME
 vagrant init $SAVED_IMAGES/$BOX_NAME.box
