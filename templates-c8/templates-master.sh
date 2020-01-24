@@ -95,7 +95,7 @@ do
 	fi
 done
 cat ./templates-c8/other/template-middle.json >> $OUTFILE
-echo -e "          \"output\": \"centos8-$BOX_NAME.box\"" >> $OUTFILE
+echo -e "          \"output\": \"$BOX_NAME.box\"" >> $OUTFILE
 cat ./templates-c8/other/template-nearbottom.json >> $OUTFILE
 
 export http_proxy="http://proxy.man.ac.uk:3128"
@@ -116,10 +116,16 @@ TMPDIR=/data/tmp/packer packer build $OUTFILE
 
 rm -rf /data/tmp/post-packer/$BOX_NAME
 mkdir /data/tmp/post-packer/$BOX_NAME
-mv centos8-$BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
+mv $BOX_NAME.box /data/tmp/post-packer/$BOX_NAME/.
 cd /data/tmp/post-packer/$BOX_NAME
-tar -xvzf centos8-$BOX_NAME.box
+tar -xvzf $BOX_NAME.box
 sed -i "s/end/  config.ssh.password = 'vagrant'\nend/g" Vagrantfile
-tar -cvzf centos8-$BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
+tar -cvzf $BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-iso-*.vmdk
 
-mv centos8-$BOX_NAME-v2.box /data/saved_images/templates/centos8-$BOX_NAME.box
+SAVED_IMAGES=/data/saved_images/templates
+VAGRANT=/data/vagrant
+mv $BOX_NAME-v2.box $SAVED_IMAGES/$BOX_NAME.box
+vagrant box remove $SAVED_IMAGES/$BOX_NAME
+cd $VAGRANT/$BOX_NAME
+vagrant box init $SAVED_IMAGES/$BOX_NAME
+vagrant up
