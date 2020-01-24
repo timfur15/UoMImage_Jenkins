@@ -135,8 +135,8 @@ tar -cvzf $BOX_NAME-v2.box Vagrantfile metadata.json box.ovf packer-virtualbox-i
 SAVED_IMAGES=/data/saved_images/templates
 VAGRANT=/data/vagrant
 mv $BOX_NAME-v2.box $SAVED_IMAGES/$BOX_NAME.box
-vagrant box remove $SAVED_IMAGES/$BOX_NAME
+vagrant box remove $SAVED_IMAGES/$BOX_NAME.box
 mkdir $VAGRANT/$BOX_NAME
 cd $VAGRANT/$BOX_NAME
-vagrant box init $SAVED_IMAGES/$BOX_NAME
+vagrant init $SAVED_IMAGES/$BOX_NAME.box
 vagrant up
