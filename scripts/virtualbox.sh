@@ -2,7 +2,7 @@
 
 echo "debug: Executing scripts/virtualbox.sh"
 
-dnf install tar bzip2 kernel-devel-$(uname -r) kernel-headers perl gcc make elfutils-libelf-devel
+dnf install tar bzip2 kernel-devel-$(uname -r) kernel-headers perl gcc make elfutils-libelf-devel -y
 
 uname -a
 
