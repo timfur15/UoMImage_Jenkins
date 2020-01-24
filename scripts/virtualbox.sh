@@ -2,7 +2,7 @@
 
 echo "debug: Executing scripts/virtualbox.sh"
 
-yum install -y elfutils-libelf elfutils-libelf-devel
+dnf install tar bzip2 kernel-devel-$(uname -r) kernel-headers perl gcc make elfutils-libelf-devel
 
 uname -a
 
