@@ -7,7 +7,8 @@ dnf install tar bzip2 kernel-devel-$(uname -r) kernel-headers perl gcc make elfu
 uname -a
 
 mount -o loop /home/vagrant/VBoxGuestAdditions.iso /mnt
-sh /mnt/VBoxLinuxAdditions.run
+cp /mnt/VBoxLinuxAdditions.run /tmp
+sh -x /tmp/VBoxLinuxAdditions.run
 rc=$?
 rc=0
 
