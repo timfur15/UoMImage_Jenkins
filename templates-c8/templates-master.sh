@@ -31,50 +31,50 @@ fi
 
 case "$selection" in
 	1)
-		BOX_NAME="juan-w-GUI"
+		BOX_NAME="c8-juan-w-GUI"
 #		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh juan.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh juan.sh virtualbox.sh"
 		;;
 	2)
-		BOX_NAME="mad-w-GUI"
+		BOX_NAME="c8-mad-w-GUI"
 #		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh MAD.sh cleanup.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh MAD-templates.sh virtualbox.sh"
 		;;
 	3)
-		BOX_NAME="r-w-GUI"
+		BOX_NAME="c8-r-w-GUI"
 		PACKAGES="base-gui.sh anaconda.sh vagrant.sh R.sh virtualbox.sh"
 		;;
 	4)
-		BOX_NAME="base-w-GUI"
+		BOX_NAME="c8-base-w-GUI"
 #		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh tigervnc.sh virtualbox.sh"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh"
 		;;
 	5)
-		BOX_NAME="juan-no-GUI"
+		BOX_NAME="c8-juan-no-GUI"
 		PACKAGES="base-nogui.sh vagrant.sh juan.sh virtualbox.sh"
 		;;
 	6)
-		BOX_NAME="mad-no-GUI"
+		BOX_NAME="c8-mad-no-GUI"
 		PACKAGES="base-nogui.sh vagrant.sh MAD-templates.sh virtualbox.sh"
 		;;
 	7)
-		BOX_NAME="r-no-GUI"
+		BOX_NAME="c8-r-no-GUI"
 		PACKAGES="base-nogui.sh anaconda.sh vagrant.sh R.sh virtualbox.sh"
 		;;
 	8)
-		BOX_NAME="base-no-GUI"
+		BOX_NAME="c8-base-no-GUI"
 		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh"
 		;;
 	9)
-		BOX_NAME="Minimal"
+		BOX_NAME="c8-Minimal"
 		PACKAGES="minimal.sh"
 		;;
 	10)
-		BOX_NAME="guacamole-no-GUI"
+		BOX_NAME="c8-guacamole-no-GUI"
 		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh guacamole.sh"
 		;;
 	11)
-		BOX_NAME="guacamole-w-GUI"
+		BOX_NAME="c8-guacamole-w-GUI"
 		PACKAGES="base-gui.sh vagrant.sh virtualbox.sh guacamole.sh"
 		;;
 	esac
