@@ -21,6 +21,7 @@ echo -e "\n8) Base no GUI "
 echo -e "\n9) Minimal "
 echo -e "\n10) Guacamole no GUI "
 echo -e "\n11) Guacamole with GUI "
+echo -e "\n12) Base no GUI for Terraform"
 echo -e ""
 
 if [ ! -z "$1" ]
@@ -78,6 +79,10 @@ case "$selection" in
                 BOX_NAME="guacamole-w-GUI"
                 PACKAGES="base-gui.sh vagrant.sh virtualbox.sh guacamole.sh"
                 ;;
+	12)
+		BOX_NAME="base-no-GUI-AWS-Terraform"
+		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh terraform.sh"
+		;;
 	esac
 
 OUTFILE="./templates/other/template-$BOX_NAME.json"
