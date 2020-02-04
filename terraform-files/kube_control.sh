@@ -22,4 +22,4 @@ wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/ma
 wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/terraform.tfvars
 wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/versions.tf
 
-# Requires id_rsa and id_rsa.pub to already be on controlling terraform VM
+# Requires id_rsa, id_rsa.pub and AWS credentials to already be on controlling terraform VM
