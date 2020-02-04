@@ -12,8 +12,6 @@ wget https://releases.hashicorp.com/terraform/0.12.9/terraform_0.12.9_linux_amd6
 unzip terraform_0.12.9_linux_amd64.zip 
 mv terraform /usr/local/bin/.
 
-export AWS_PROFILE=tmf
-
 eval `ssh-agent`
 
 mkdir /root/terraform
@@ -21,5 +19,10 @@ cd /root/terraform
 wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/main.tf
 wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/terraform.tfvars
 wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/versions.tf
+wget "https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/source.txt"
+
+echo -e "\n\nNow add AWS credentials to the source.txt file and source it using..."
+echo -e "\n. source.txt"
+echo -e "\n\n"
 
 # Requires id_rsa, id_rsa.pub and AWS credentials to already be on controlling terraform VM
