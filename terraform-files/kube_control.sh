@@ -16,10 +16,10 @@ eval `ssh-agent`
 
 mkdir /root/terraform
 cd /root/terraform
-wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/main.tf
-wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/terraform.tfvars
-wget https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/versions.tf
-wget "https://github.com/timfur15/UoMImage_Jenkins/blob/master/terraform-files/source.txt"
+wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/main.tf
+wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/terraform.tfvars
+wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/versions.tf
+wget "https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/source.txt"
 
 echo -e "\n\nNow add AWS credentials to the source.txt file and source it using..."
 echo -e "\n. source.txt"
