@@ -1,21 +1,22 @@
 #!/bin/bash
 
-export HTTPS_PROXY=http://proxy.man.ac.uk:3128
-HTTPS_PROXY=http://proxy.man.ac.uk:3128
-
 export https_proxy=http://proxy.man.ac.uk:3128
 https_proxy=http://proxy.man.ac.uk:3128
 
 export http_proxy=http://proxy.man.ac.uk:3128
 http_proxy=http://proxy.man.ac.uk:3128
 
+yum install unzip -y
+
 wget "https://github.com/kubermatic/kubeone/releases/download/v0.10.0/kubeone_0.10.0_linux_amd64.zip"
 unzip kubeone_0.10.0_linux_amd64.zip 
-mv kubeone /usr/local/bin/.
+cp kubeone /usr/local/bin/.
+mv kubeone /usr/local/sbin/.
 kubeone completion bash > /etc/bash_completion.d/kubeone
 
 wget https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
 unzip terraform_0.12.20_linux_amd64.zip 
+cp terraform /usr/local/sbin/.
 mv terraform /usr/local/bin/.
 
 eval `ssh-agent`
