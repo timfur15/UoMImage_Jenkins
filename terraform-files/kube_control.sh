@@ -28,6 +28,9 @@ echo -e "\n. source.txt"
 echo -e "\n\n"
 echo -e "\nThen run..."
 echo -e "\nterraform init; terraform apply -auto-approve; kubeone install config.yaml -t."
-echo -e "\n\n"
+echo -e "\n"
+echo -e "\n...and destroy by..."
+echo -e "\nkubeone reset config.yaml -t .; terraform destroy -auto-approve"
+echo -e "\n"
 
 # Requires id_rsa, id_rsa.pub and AWS credentials to already be on controlling terraform VM
