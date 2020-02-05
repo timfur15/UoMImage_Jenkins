@@ -21,7 +21,7 @@ echo -e "\n8) Base no GUI "
 echo -e "\n9) Minimal "
 echo -e "\n10) Guacamole no GUI "
 echo -e "\n11) Guacamole with GUI "
-echo -e "\n12) Base no GUI for Terraform"
+echo -e "\n12) Base no GUI for Terraform Control Plane Node"
 echo -e ""
 
 if [ ! -z "$1" ]
