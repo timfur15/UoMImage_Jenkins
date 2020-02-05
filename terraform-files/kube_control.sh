@@ -26,5 +26,8 @@ wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terrafor
 echo -e "\n\nNow add AWS credentials to the source.txt file and source it using..."
 echo -e "\n. source.txt"
 echo -e "\n\n"
+echo -e "\nThen run..."
+echo -e "\nterraform init; terraform apply -auto-approve; kubeone install config.yaml -t."
+echo -e "\n\n"
 
 # Requires id_rsa, id_rsa.pub and AWS credentials to already be on controlling terraform VM
