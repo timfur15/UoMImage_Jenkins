@@ -6,7 +6,7 @@ https_proxy=http://proxy.man.ac.uk:3128
 export http_proxy=http://proxy.man.ac.uk:3128
 http_proxy=http://proxy.man.ac.uk:3128
 
-yum install unzip -y
+yum install unzip kubernetes-client -y
 
 wget "https://github.com/kubermatic/kubeone/releases/download/v0.10.0/kubeone_0.10.0_linux_amd64.zip"
 unzip kubeone_0.10.0_linux_amd64.zip 
@@ -36,9 +36,11 @@ echo -e "\n. source.txt"
 echo -e "\n\nAlso export AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID credentials."
 echo -e "\n\n"
 echo -e "\nThen run..."
-echo -e "\nterraform init; terraform apply -auto-approve; kubeone config print > config.yaml; kubeone install config.yaml -t ."
+echo -e "\nterraform init; terraform apply -auto-approve"
+echo -e "\nkubeone config print > config.yaml; kubeone install config.yaml -t ."
+echo -e "\nexport KUBECONFIG=$PWD/mycluster-kubeconfig"
 echo -e "\n"
-echo -e "\n...(the dot at the end is included and in the correct place!) and when finished, destroy it by..."
+echo -e "\n...and when finished, destroy it by..."
 echo -e "\nkubeone reset config.yaml -t .; terraform destroy -auto-approve"
 echo -e "\n"
 
