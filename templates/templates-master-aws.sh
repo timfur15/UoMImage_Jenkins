@@ -22,6 +22,7 @@ echo -e "\n9) Minimal "
 echo -e "\n10) Guacamole no GUI "
 echo -e "\n11) Guacamole with GUI "
 echo -e "\n12) Base no GUI for Terraform Control Plane Node"
+echo -e "\n13) Base no GUI for Terraform Master Node"
 echo -e ""
 
 if [ ! -z "$1" ]
@@ -80,8 +81,12 @@ case "$selection" in
                 PACKAGES="base-gui.sh vagrant.sh virtualbox.sh guacamole.sh"
                 ;;
 	12)
-		BOX_NAME="base-no-GUI-AWS-Terraform"
+		BOX_NAME="base-no-GUI-AWS-Terraform-Control-Plane-Node"
 		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh terraform.sh"
+		;;
+	13)
+		BOX_NAME="base-no-GUI-AWS-Terraform-Master"
+		PACKAGES="base-nogui.sh vagrant.sh virtualbox.sh terraform.sh kube_control.sh"
 		;;
 	esac
 
