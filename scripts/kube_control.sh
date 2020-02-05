@@ -3,6 +3,12 @@
 export HTTPS_PROXY=http://proxy.man.ac.uk:3128
 HTTPS_PROXY=http://proxy.man.ac.uk:3128
 
+export https_proxy=http://proxy.man.ac.uk:3128
+https_proxy=http://proxy.man.ac.uk:3128
+
+export http_proxy=http://proxy.man.ac.uk:3128
+http_proxy=http://proxy.man.ac.uk:3128
+
 wget https://github.com/kubermatic/kubeone/releases/download/v0.10.0/kubeone_0.10.0_linux_amd64.zip
 unzip kubeone_0.10.0_linux_amd64.zip 
 mv kubeone /usr/local/bin/.
