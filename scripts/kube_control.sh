@@ -22,6 +22,7 @@ wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terrafor
 wget "https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/source.txt"
 wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/variables.tf
 wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/output.tf
+wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/readme.txt
 
 echo -e "\n\nNow add AWS credentials to the source.txt file and source it using..."
 echo -e "\n. source.txt"
