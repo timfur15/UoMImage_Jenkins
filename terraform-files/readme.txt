@@ -20,3 +20,42 @@ on each of those nodes..."
 
 	kubectl taint nodes --all node-role.kubernetes.io/master-
 
+
+IAM POLICY
+
+A potential IAM policy is below. There are improvements to be had but it works...
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticloadbalancing:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:GetRole",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "arn:aws:iam::[AWS USER ID NUMBER]:instance-profile/mycluster-host"
+        }
+    ]
+}
+
