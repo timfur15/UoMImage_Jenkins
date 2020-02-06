@@ -14,3 +14,9 @@ Then run...
 ...and when finished, destroy it by...
 
 	kubeone reset config.yaml -t .; terraform destroy -auto-approve
+
+For the Metrics service/pod to run on each of the control nodes the following is required to be run
+on each of those nodes..."
+
+	kubectl taint nodes --all node-role.kubernetes.io/master-
+

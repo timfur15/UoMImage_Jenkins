@@ -43,5 +43,8 @@ echo -e "\n"
 echo -e "\n...and when finished, destroy it by..."
 echo -e "\nkubeone reset config.yaml -t .; terraform destroy -auto-approve"
 echo -e "\n"
+echo -e "\nFor the Metrics service/pod to run on each of the control nodes the following is required to be run"
+echo -e "\non each of those nodes...""
+echo -e "\n\n\tkubectl taint nodes --all node-role.kubernetes.io/master-"
 
 # Requires id_rsa, id_rsa.pub and AWS credentials to already be on controlling terraform VM
