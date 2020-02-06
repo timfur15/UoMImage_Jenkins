@@ -1,6 +1,9 @@
 #!/bin/bash
 
 http_proxy=http://proxy.man.ac.uk:3128
+https_proxy=http://proxy.man.ac.uk:3128
+export http_proxy=http://proxy.man.ac.uk:3128
+export https_proxy=http://proxy.man.ac.uk:3128
 
 systemctl stop firewalld
 systemctl disable firewalld
