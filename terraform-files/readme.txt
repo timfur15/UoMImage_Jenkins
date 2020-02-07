@@ -6,6 +6,9 @@ Now add AWS credentials to the source.txt file and source it using...
 
 Also export AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID credentials.
 
+Requires the id_rsa and id_rsa.pub from the /data/terraform_keys directory on
+the Jenkins VM to be placed into /root/terraform on the 'Terraform Master Node'.
+
 Then run...
 	terraform init; terraform apply -auto-approve
 	kubeone config print > config.yaml; kubeone install config.yaml -t .

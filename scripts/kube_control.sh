@@ -34,6 +34,8 @@ wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terrafor
 echo -e "\n\nNow add AWS credentials to the source.txt file and source it using..."
 echo -e "\n. source.txt"
 echo -e "\n\nAlso export AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID credentials."
+echo -e "\n\nRequires the id_rsa and id_rsa.pub from the /data/terraform_keys directory on"
+echo -e "\nthe Jenkins VM to be placed into /root/terraform on the 'Terraform Master Node'."
 echo -e "\n\n"
 echo -e "\nThen run..."
 echo -e "\nterraform init; terraform apply -auto-approve"
