@@ -50,4 +50,11 @@ echo -e "\nto take control, the following is required to be run on just one of t
 echo -e "\nplane nodes..."
 echo -e "\n\n\tkubectl taint nodes --all node-role.kubernetes.io/master-"
 
-# Requires id_rsa, id_rsa.pub and AWS credentials to already be on controlling terraform VM
+echo -e "\n" >> /root/.bashrc
+echo -e "***********************************************************************" >> /root/.bashrc
+echo -e "*                                                                     *" >> /root/.bashrc
+echo -e "* NOW TAKE A LOOK AT THE README FILE IN THE /root/terraform directory *" >> /root/.bashrc
+echo -e "*                                                                     *" >> /root/.bashrc
+echo -e "***********************************************************************" >> /root/.bashrc
+echo -e "\n" >> /root/.bashrc
+
