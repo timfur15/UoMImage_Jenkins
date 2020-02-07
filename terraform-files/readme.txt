@@ -18,8 +18,9 @@ Then run...
 
 	kubeone reset config.yaml -t .; terraform destroy -auto-approve
 
-For the Metrics service/pod to run on each of the control nodes the following is required to be run
-on each of those nodes..."
+For the Metrics service/pod to run on all of the control nodes and to allow the master VM
+to take control, the following is required to be run on just one of the initial control
+plane nodes...
 
 	kubectl taint nodes --all node-role.kubernetes.io/master-
 
