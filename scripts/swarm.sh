@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export https_proxy=http://proxy.man.ac.uk:3128
+https_proxy=http://proxy.man.ac.uk:3128
+
 echo "proxy=http://proxy.man.ac.uk:3128" >> /etc/yum.conf
 
 exec >> /tmp/docker-swarm.log
