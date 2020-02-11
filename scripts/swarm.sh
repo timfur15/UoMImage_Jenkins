@@ -28,6 +28,7 @@ yum install docker-ce docker-ce-cli containerd.io -y
 dm=docker-machine-$(uname -s)-$(uname -m)
 wget https://github.com/docker/machine/releases/download/v0.14.0/$dm
 mv $dm /usr/local/bin/docker-machine
+chmod 755 /usr/local/bin/docker-machine
 ln -s /usr/local/bin/docker-machine /usr/local/sbin/docker-machine
 
 yum -y install iptables-services
