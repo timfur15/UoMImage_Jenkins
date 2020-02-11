@@ -3,8 +3,6 @@
 export https_proxy=http://proxy.man.ac.uk:3128
 https_proxy=http://proxy.man.ac.uk:3128
 
-echo "proxy=http://proxy.man.ac.uk:3128" >> /etc/yum.conf
-
 exec >> /tmp/docker-swarm.log
 exec 2>&1
 
@@ -26,6 +24,11 @@ yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo
 
 yum install docker-ce docker-ce-cli containerd.io -y
+
+dm=docker-machine-$(uname -s)-$(uname -m)
+wget https://github.com/docker/machine/releases/download/v0.14.0/$dm
+mv $dm /usr/local/bin/docker-machine
+ln -s /usr/local/bin/docker-machine /usr/local/sbin/docker-machine
 
 yum -y install iptables-services
 
