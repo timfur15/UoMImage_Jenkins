@@ -45,3 +45,9 @@ wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terrafor
 mv iptables /etc/sysconfig/.
 systemctl start iptables
 
+mkdir /root/swarm
+cd /root/swarm
+wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terraform-files/swarm-create
+mv swarm-create swarm-create.sh
+chmod 755 swarm-create.sh
+
