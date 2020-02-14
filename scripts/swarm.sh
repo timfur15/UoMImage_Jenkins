@@ -51,3 +51,4 @@ wget https://raw.githubusercontent.com/timfur15/UoMImage_Jenkins/master/terrafor
 mv swarm-create swarm-create.sh
 chmod 755 swarm-create.sh
 
+unset https_proxy
