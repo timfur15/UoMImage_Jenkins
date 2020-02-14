@@ -33,7 +33,7 @@ ignoredisk --only-use=sda
 clearpart --all --initlabel --drives=sda
 bootloader --location=mbr
 #part /boot --fstype ext4 --size=512 --ondisk=sda
-part / --fstype ext4 --size=10240 --ondisk=sda
+part / --fstype ext4 --size=20480 --ondisk=sda
 #part pv.01 --size=8000 --grow --ondisk=sda
 #volgroup VolGroup --pesize=8192 pv.01
 #logvol / --vgname=VolGroup --fstype ext4 --size=6144 --name=lv_root
