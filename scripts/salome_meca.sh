@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export https_proxy=http://proxy.man.ac.uk:3128
+https_proxy=http://proxy.man.ac.uk:3128
+
 yum install libmpc-devel mpfr-devel gmp-devel tcl-devel tcl libXScrnSaver-devel -y
 
 cd /root
@@ -13,3 +16,4 @@ mv usr/lib64/libstdc++.so.6.0.20 /usr/local/lib64/.
 ./Salome-Meca-2017.0.1-LGPL-1.run -t /root/salome_meca -l English
 ln -s /usr/local/lib64/libstdc++.so.6.0.20 /root/salome_meca/V2017/prerequisites/debianForSalome/lib/libstdc++.so.6
 
+unset https_proxy
