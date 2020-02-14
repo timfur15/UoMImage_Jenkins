@@ -32,7 +32,8 @@ fi
 case "$selection" in
 	1)
 		BOX_NAME="juan-w-GUI"
-		PACKAGES="base-gui.sh vagrant.sh juan.sh virtualbox.sh"
+                PACKAGES="base-gui.sh vagrant.sh juan.sh salome_meca.sh paraview.sh virtualbox.sh"
+
 		;;
 	2)
 		BOX_NAME="mad-w-GUI"
@@ -48,7 +49,7 @@ case "$selection" in
 		;;
 	5)
 		BOX_NAME="juan-no-GUI"
-		PACKAGES="base-nogui.sh vagrant.sh juan.sh virtualbox.sh"
+                PACKAGES="base-nogui.sh vagrant.sh juan.sh salome_meca.sh paraview.sh virtualbox.sh"
 		;;
 	6)
 		BOX_NAME="mad-no-GUI"
